@@ -17,7 +17,7 @@ const PlanCheckout = () => {
 
     // Form state
     const [amount, setAmount] = useState('');
-    const [paymentMethod, setPaymentMethod] = useState('wallet');
+    const [paymentMethod, setPaymentMethod] = useState('card');
     const [termsAccepted, setTermsAccepted] = useState(false);
     const [calculations, setCalculations] = useState({ return: 0, date: '' });
 
@@ -450,14 +450,8 @@ const PlanCheckout = () => {
                                     <div className="form-group">
                                         <label className="form-label">Método de Pago</label>
                                         <div className="payment-methods-grid">
-                                            <div className={`payment-method-card ${paymentMethod === 'wallet' ? 'active' : ''}`} onClick={() => setPaymentMethod('wallet')}>
-                                                <span className="pm-icon">👛</span><span className="pm-name">Saldo Billetera</span>
-                                            </div>
-                                            <div className={`payment-method-card ${paymentMethod === 'crypto' ? 'active' : ''}`} onClick={() => setPaymentMethod('crypto')}>
-                                                <span className="pm-icon">₿</span><span className="pm-name">Criptomonedas</span>
-                                            </div>
                                             <div className={`payment-method-card ${paymentMethod === 'card' ? 'active' : ''}`} onClick={() => setPaymentMethod('card')}>
-                                                <span className="pm-icon">💳</span><span className="pm-name">Tarjeta Débito</span>
+                                                <span className="pm-icon">💳</span><span className="pm-name">Tarjeta Débito / Crédito</span>
                                             </div>
                                         </div>
                                     </div>

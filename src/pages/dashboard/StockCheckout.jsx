@@ -210,20 +210,6 @@ const StockCheckout = () => {
                                                 <span className="pm-icon">💳</span>
                                                 <span className="pm-name">Tarjeta Débito</span>
                                             </div>
-                                            <div
-                                                className={`payment-method-card ${paymentMethod === 'wallet' ? 'active' : ''}`}
-                                                onClick={() => setPaymentMethod('wallet')}
-                                            >
-                                                <span className="pm-icon">👛</span>
-                                                <span className="pm-name">Saldo Billetera</span>
-                                            </div>
-                                            <div
-                                                className={`payment-method-card ${paymentMethod === 'crypto' ? 'active' : ''}`}
-                                                onClick={() => setPaymentMethod('crypto')}
-                                            >
-                                                <span className="pm-icon">₿</span>
-                                                <span className="pm-name">Cripto</span>
-                                            </div>
                                         </div>
                                     </div>
 
