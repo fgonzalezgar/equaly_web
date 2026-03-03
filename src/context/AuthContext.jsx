@@ -20,7 +20,16 @@ export const AuthProvider = ({ children }) => {
                 body: JSON.stringify(userData)
             });
 
-            const data = await response.json();
+            // Read as text first to avoid crashing if server returns HTML
+            const textResponse = await response.text();
+            let data;
+
+            try {
+                data = JSON.parse(textResponse);
+            } catch (jsonError) {
+                console.error('Non-JSON response from server:', textResponse);
+                throw new Error('Error de conexión o fallo interno en el servidor. Por favor intenta de nuevo.');
+            }
 
             if (!response.ok) {
                 throw new Error(data.message || (data.errors ? Object.values(data.errors).flat().join(', ') : 'Error al registrarse'));
