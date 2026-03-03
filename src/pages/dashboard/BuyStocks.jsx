@@ -240,6 +240,10 @@ const BuyStocks = () => {
                             <span>Advanced Charts</span>
                         </a>
                         <a href="#" onClick={(e) => { e.preventDefault(); navigate('/dashboard/profile'); }} className="nav-item">
+                            <span className="nav-icon">👤</span>
+                            <span>Mi Perfil</span>
+                        </a>
+                        <a href="#" onClick={(e) => { e.preventDefault(); navigate('/dashboard/profile'); }} className="nav-item">
                             <span className="nav-icon">⚙️</span>
                             <span>Configuración</span>
                         </a>

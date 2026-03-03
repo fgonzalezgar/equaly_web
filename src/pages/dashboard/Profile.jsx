@@ -110,7 +110,11 @@ const Profile = () => {
                         <span className="nav-icon">📈</span>
                         <span>Gráficos Avanzados</span>
                     </a>
-                    <a href="#" className="nav-item active">
+                    <a href="#" onClick={(e) => { e.preventDefault(); navigate('/dashboard/profile'); }} className="nav-item active">
+                        <span className="nav-icon">👤</span>
+                        <span>Mi Perfil</span>
+                    </a>
+                    <a href="#" onClick={(e) => { e.preventDefault(); navigate('/dashboard/profile'); }} className="nav-item">
                         <span className="nav-icon">⚙️</span>
                         <span>Configuración</span>
                     </a>
