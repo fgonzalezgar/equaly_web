@@ -38,10 +38,48 @@ const PlanCheckout = () => {
 
     // Redirect if no plan selected
     useEffect(() => {
-        if (!plan) {
+        if (!plan && !location.search.includes('session_id')) {
             navigate('/dashboard/plans');
         }
-    }, [plan, navigate]);
+    }, [plan, navigate, location.search]);
+
+    // Check for Stripe return
+    useEffect(() => {
+        const queryParams = new URLSearchParams(location.search);
+        const sessionId = queryParams.get('session_id');
+
+        if (sessionId && step !== 'success') {
+            const confirmPayment = async () => {
+                try {
+                    let token = localStorage.getItem('token');
+                    if (!token) {
+                        const userData = JSON.parse(localStorage.getItem('equaly_user'));
+                        token = userData?.token;
+                    }
+
+                    const response = await fetch('https://equaly-api.vercel.app/api/investments/confirm', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({ stripePaymentId: sessionId })
+                    });
+
+                    if (response.ok) {
+                        setStep('success');
+                    } else {
+                        // Error confirming, fallback
+                        alert('No se pudo confirmar automáticamente su pago con el servidor, sin embargo Stripe procesó la solicitud.');
+                        setStep('success');
+                    }
+                } catch (e) {
+                    console.error('Error confirming payment:', e);
+                }
+            };
+            confirmPayment();
+        }
+    }, [location.search, step]);
 
     // Load available currencies
     useEffect(() => {
@@ -178,6 +216,44 @@ const PlanCheckout = () => {
         }
     };
 
+    const handleStripeCheckout = async (e) => {
+        e.preventDefault();
+        setIsCalculating(true);
+        try {
+            let token = localStorage.getItem('token');
+            if (!token) {
+                const userData = JSON.parse(localStorage.getItem('equaly_user'));
+                token = userData?.token;
+            }
+            const response = await fetch('https://equaly-api.vercel.app/api/investments/checkout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    planId: plan.id,
+                    amount: parseFloat(amount),
+                    paymentMethod: 'Tarjeta Débito'
+                })
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.checkoutUrl) {
+                // Redirigir al usuario al Stripe Checkout
+                window.location.href = data.checkoutUrl;
+            } else {
+                throw new Error(data.message || data.errors ? Object.values(data.errors).flat().join(', ') : 'Error al conectar con la pasarela de pago');
+            }
+        } catch (error) {
+            console.error('Error in Stripe Checkout:', error);
+            alert(error.message);
+        } finally {
+            setIsCalculating(false);
+        }
+    };
+
     const formatTime = (seconds) => {
         const mins = Math.floor(seconds / 60);
         const secs = seconds % 60;
@@ -199,7 +275,7 @@ const PlanCheckout = () => {
         return stepIndex;
     };
 
-    if (!plan) return null;
+    if (!plan && step !== 'success') return null;
 
     const displayUser = {
         name: user?.user?.name || (user?.user?.first_name ? `${user.user.first_name} ${user.user.last_name || ''}`.trim() : user?.name || 'Cliente'),
@@ -417,10 +493,10 @@ const PlanCheckout = () => {
                                     {paymentMethod === 'card' ? (
                                         <button
                                             className="confirm-btn card-btn"
-                                            disabled={!amount || !termsAccepted}
-                                            onClick={() => setShowCardWidget(true)} // Open widget
+                                            disabled={!amount || !termsAccepted || isCalculating}
+                                            onClick={handleStripeCheckout}
                                         >
-                                            💳 Procesar Pago Seguro
+                                            {isCalculating ? '⏳ Procesando...' : '💳 Procesar Pago Seguro'}
                                         </button>
                                     ) : (
                                         <button className="confirm-btn" disabled={!amount || !termsAccepted || (!cryptoEstimate && paymentMethod === 'crypto')} onClick={handleConfirm}>

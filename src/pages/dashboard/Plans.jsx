@@ -18,6 +18,7 @@ const Plans = () => {
     // Investment Plans Data
     const plans = [
         {
+            id: 1,
             name: 'Oro',
             tier: 'VIP',
             icon: '🥇',
@@ -28,6 +29,7 @@ const Plans = () => {
             popular: false
         },
         {
+            id: 2,
             name: 'Plata',
             tier: 'PRO',
             icon: '🥈',
@@ -38,6 +40,7 @@ const Plans = () => {
             popular: true
         },
         {
+            id: 3,
             name: 'Bronce',
             tier: 'BÁSICO',
             icon: '🥉',
