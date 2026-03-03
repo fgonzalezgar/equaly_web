@@ -20,12 +20,7 @@ const Register = () => {
         }));
     };
 
-    const handleCheckboxChange = (e) => {
-        setFormData(prevState => ({
-            ...prevState,
-            termsAccepted: e.target.checked
-        }));
-    };
+
 
     const [status, setStatus] = useState(''); // '', 'sending', 'success', 'error'
     const [serverError, setServerError] = useState('');

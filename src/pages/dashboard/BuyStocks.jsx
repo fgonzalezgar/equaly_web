@@ -15,7 +15,6 @@ const BuyStocks = () => {
     const [limitPrice, setLimitPrice] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [purchaseSuccess, setPurchaseSuccess] = useState(false);
     const [purchaseNotification, setPurchaseNotification] = useState(null);
     const [popularStocks, setPopularStocks] = useState([]);
     const [isLoadingStocks, setIsLoadingStocks] = useState(true);
@@ -58,7 +57,6 @@ const BuyStocks = () => {
         }
 
         setIsSubmitting(true);
-        setPurchaseSuccess(false);
 
         try {
             const total = selectedStock.price * parseFloat(quantity);
@@ -89,9 +87,6 @@ const BuyStocks = () => {
             }
 
             const data = await response.json();
-
-
-            setPurchaseSuccess(true);
 
             // Extract response data
             const purchase = data.purchase || {};

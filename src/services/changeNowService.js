@@ -11,25 +11,20 @@ const MERCHANT_WALLET = 'THPvaUhoh2Qn2y9THCZML3H815hhFhn5YC'; // Example TRC20 a
  * Get available currencies (filtered for popular ones)
  */
 export const getAvailableCurrencies = async () => {
-    try {
-        // For better UX, we'll stick to a curated list of popular coins supported by ChangeNow
-        // fetching all 500+ coins might be slow and overwhelming
-        return [
-            { ticker: 'btc', name: 'Bitcoin', icon: 'https://changenow.io/images/coins/btc.svg' },
-            { ticker: 'eth', name: 'Ethereum', icon: 'https://changenow.io/images/coins/eth.svg' },
-            { ticker: 'usdttrc20', name: 'Tether (TRC20)', icon: 'https://changenow.io/images/coins/usdt.svg' },
-            { ticker: 'ltc', name: 'Litecoin', icon: 'https://changenow.io/images/coins/ltc.svg' },
-            { ticker: 'trx', name: 'Tron', icon: 'https://changenow.io/images/coins/trx.svg' },
-            { ticker: 'xrp', name: 'Ripple', icon: 'https://changenow.io/images/coins/xrp.svg' },
-            { ticker: 'doge', name: 'Dogecoin', icon: 'https://changenow.io/images/coins/doge.svg' },
-            { ticker: 'sol', name: 'Solana', icon: 'https://changenow.io/images/coins/sol.svg' },
-            { ticker: 'matic', name: 'Polygon', icon: 'https://changenow.io/images/coins/matic.svg' },
-            { ticker: 'bnb', name: 'BNB (BSC)', icon: 'https://changenow.io/images/coins/bnb.svg' }
-        ];
-    } catch (error) {
-        console.error('Error fetching currencies:', error);
-        return [];
-    }
+    // For better UX, we'll stick to a curated list of popular coins supported by ChangeNow
+    // fetching all 500+ coins might be slow and overwhelming
+    return [
+        { ticker: 'btc', name: 'Bitcoin', icon: 'https://changenow.io/images/coins/btc.svg' },
+        { ticker: 'eth', name: 'Ethereum', icon: 'https://changenow.io/images/coins/eth.svg' },
+        { ticker: 'usdttrc20', name: 'Tether (TRC20)', icon: 'https://changenow.io/images/coins/usdt.svg' },
+        { ticker: 'ltc', name: 'Litecoin', icon: 'https://changenow.io/images/coins/ltc.svg' },
+        { ticker: 'trx', name: 'Tron', icon: 'https://changenow.io/images/coins/trx.svg' },
+        { ticker: 'xrp', name: 'Ripple', icon: 'https://changenow.io/images/coins/xrp.svg' },
+        { ticker: 'doge', name: 'Dogecoin', icon: 'https://changenow.io/images/coins/doge.svg' },
+        { ticker: 'sol', name: 'Solana', icon: 'https://changenow.io/images/coins/sol.svg' },
+        { ticker: 'matic', name: 'Polygon', icon: 'https://changenow.io/images/coins/matic.svg' },
+        { ticker: 'bnb', name: 'BNB (BSC)', icon: 'https://changenow.io/images/coins/bnb.svg' }
+    ];
 };
 
 /**

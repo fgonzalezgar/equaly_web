@@ -74,11 +74,13 @@ const PlanCheckout = () => {
                 const months = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
                 const formattedDate = `${date.getDate()} ${months[date.getMonth()]}, ${date.getFullYear()}`;
 
+                // eslint-disable-next-line react-hooks/set-state-in-effect
                 setCalculations({
                     return: totalReturn.toFixed(2),
                     date: formattedDate
                 });
             } else {
+                // eslint-disable-next-line react-hooks/set-state-in-effect
                 setCalculations({ return: 0, date: '-' });
             }
         }
@@ -97,6 +99,7 @@ const PlanCheckout = () => {
             const timer = setTimeout(getEstimate, 500);
             return () => clearTimeout(timer);
         } else {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setCryptoEstimate(null);
         }
     }, [amount, selectedCoin, paymentMethod, step]);

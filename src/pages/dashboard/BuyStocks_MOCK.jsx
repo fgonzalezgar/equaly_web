@@ -17,7 +17,6 @@ const BuyStocks = () => {
     const [limitPrice, setLimitPrice] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [purchaseSuccess, setPurchaseSuccess] = useState(false);
 
     const displayUser = {
         name: user?.user?.name || (user?.user?.first_name ? `${user.user.first_name} ${user.user.last_name || ''}`.trim() : user?.name || 'Cliente'),
@@ -177,7 +176,6 @@ const BuyStocks = () => {
         }
 
         setIsSubmitting(true);
-        setPurchaseSuccess(false);
 
         try {
             const total = selectedStock.price * parseFloat(quantity);
@@ -218,8 +216,6 @@ const BuyStocks = () => {
 
             const data = await response.json();
             console.log('📥 Response Data:', JSON.stringify(data, null, 2));
-
-            setPurchaseSuccess(true);
 
             // Show detailed success message
             const bankDetails = data.payment_instructions;

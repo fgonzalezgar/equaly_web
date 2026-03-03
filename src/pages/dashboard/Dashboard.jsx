@@ -6,7 +6,6 @@ import './Dashboard.css';
 const Dashboard = () => {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
-    const [activeView, setActiveView] = useState('1H');
     const [portfolioOpen, setPortfolioOpen] = useState(false);
 
     // Display user data (extract from nested user object)

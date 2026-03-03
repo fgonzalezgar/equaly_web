@@ -1,9 +1,10 @@
 import React from 'react';
 
+const SocialIcon = ({ color }) => (
+    <div style={{ width: 32, height: 32, background: color, borderRadius: '50%' }}></div>
+)
+
 const Footer = () => {
-    const SocialIcon = ({ color }) => (
-        <div style={{ width: 32, height: 32, background: color, borderRadius: '50%' }}></div>
-    )
 
     return (
         <footer className="footer" id="contacto-footer">
