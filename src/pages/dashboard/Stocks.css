@@ -1,0 +1,459 @@
+/* Stocks/Portfolio Page Specific Styles */
+
+.page-title-header {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+.last-updated {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.last-updated span {
+    color: white;
+    font-weight: 600;
+}
+
+.search-container-small {
+    position: relative;
+    width: 200px;
+}
+
+.notification-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.notification-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-deposit {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-deposit:hover {
+    background: #2563eb;
+}
+
+/* Portfolio Metrics Cards */
+.portfolio-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px 30px;
+}
+
+.metric-card-portfolio {
+    background: #0f1319;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.2s;
+}
+
+.metric-card-portfolio:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.metric-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+.metric-icon-small {
+    font-size: 1.2rem;
+}
+
+.metric-value-large {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.metric-value-large.positive {
+    color: #10b981;
+}
+
+.metric-value-large.negative {
+    color: #ef4444;
+}
+
+.metric-change {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.metric-change.positive {
+    color: #10b981;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 20px;
+    padding: 0 30px 30px 30px;
+}
+
+/* Asset Performance Section */
+.asset-performance-section {
+    background: #0f1319;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 24px;
+    min-width: 0;
+}
+
+.section-header-portfolio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.section-header-portfolio h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+.period-selector {
+    display: flex;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.period-btn {
+    padding: 6px 16px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.period-btn:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.period-btn.active {
+    background: #3b82f6;
+    color: white;
+}
+
+/* Performance Table */
+.performance-table {
+    overflow-x: auto;
+}
+
+.stocks-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.stocks-table thead {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stocks-table th {
+    text-align: left;
+    padding: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stocks-table tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.2s;
+}
+
+.stocks-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.stocks-table td {
+    padding: 16px 12px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.asset-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.asset-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.asset-name-stock {
+    font-weight: 600;
+    color: white;
+    font-size: 0.95rem;
+}
+
+.asset-symbol {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.positive {
+    color: #10b981 !important;
+}
+
+.negative {
+    color: #ef4444 !important;
+}
+
+.market-value {
+    font-weight: 700;
+    color: white;
+}
+
+/* Sidebar Widgets */
+.sidebar-widgets {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.widget-card {
+    background: #0f1319;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.widget-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 20px 0;
+}
+
+/* Sector Chart */
+.sector-chart {
+    margin-bottom: 20px;
+}
+
+.donut-chart {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.donut-chart svg {
+    transform: rotate(-90deg);
+}
+
+.chart-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.sector-count {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.sector-label {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sector-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.legend-name {
+    flex: 1;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.legend-percent {
+    font-weight: 700;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* Investment Plan Widget */
+.investment-plan {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.plan-description {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: white;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.current-amount,
+.goal-amount {
+    color: white;
+    font-weight: 600;
+}
+
+.btn-adjust-plan {
+    width: 100%;
+    padding: 12px;
+    background: white;
+    color: #3b82f6;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-adjust-plan:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar-widgets {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 1024px) {
+    .portfolio-metrics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sidebar-widgets {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-metrics {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .portfolio-grid {
+        padding: 0 15px 15px 15px;
+    }
+
+    .stocks-table {
+        font-size: 0.85rem;
+    }
+
+    .stocks-table th,
+    .stocks-table td {
+        padding: 10px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar {
+        flex-wrap: wrap;
+    }
+
+    .page-title-header {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-container-small {
+        width: 100%;
+    }
+}

@@ -1,0 +1,524 @@
+/* Currencies.css */
+.currencies-wrapper {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+@media (max-width: 1200px) {
+    .currencies-wrapper {
+        flex-direction: column;
+    }
+}
+
+/* Left Content Area */
+.currencies-main {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Balance & Market Card Row */
+.balance-market-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 24px;
+}
+
+@media (max-width: 768px) {
+    .balance-market-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Balance Card */
+.balance-card {
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.balance-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    filter: blur(40px);
+}
+
+.balance-title {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 8px;
+}
+
+.balance-amount {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.balance-subtitle {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: auto;
+}
+
+.balance-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.balance-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+.btn-manage {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.btn-manage:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.btn-withdraw {
+    background: white;
+    color: #1D4ED8;
+}
+
+.btn-withdraw:hover {
+    background: #F3F4F6;
+}
+
+
+/* Market Card */
+.market-card {
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.market-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+}
+
+.market-title h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+}
+
+.market-title p {
+    color: #9CA3AF;
+    font-size: 13px;
+    margin: 0;
+}
+
+.market-power {
+    text-align: right;
+}
+
+.power-label {
+    font-size: 11px;
+    color: #9CA3AF;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.power-indicators {
+    display: flex;
+    gap: 4px;
+    justify-content: flex-end;
+}
+
+.power-bar {
+    width: 6px;
+    height: 16px;
+    background: #374151;
+    border-radius: 2px;
+}
+
+.power-bar.active {
+    background: #10B981;
+}
+
+.exchange-inputs {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.input-group {
+    flex: 1;
+}
+
+.input-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #9CA3AF;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.input-field-wrapper {
+    position: relative;
+    background: #1F2937;
+    border: 1px solid #374151;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.currency-symbol {
+    color: #9CA3AF;
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.exchange-input {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    width: 100%;
+    outline: none;
+}
+
+.exchange-arrow {
+    color: #3B82F6;
+    font-size: 24px;
+}
+
+.value-display {
+    color: #10B981;
+}
+
+.initiate-sale-btn {
+    width: 100%;
+    background: linear-gradient(90deg, #3B82F6 0%, #2563EB 100%);
+    border: none;
+    border-radius: 12px;
+    padding: 18px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.initiate-sale-btn:hover {
+    filter: brightness(1.1);
+}
+
+/* Active Rates Table */
+.rates-section {
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.rates-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.rates-title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.rates-toggle {
+    display: flex;
+    background: #1F2937;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.toggle-btn {
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #9CA3AF;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.toggle-btn.active {
+    background: #3B82F6;
+    color: white;
+}
+
+.rates-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.rates-table th {
+    text-align: left;
+    color: #9CA3AF;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 16px;
+    border-bottom: 1px solid #374151;
+}
+
+.rates-table td {
+    padding: 20px 16px;
+    border-bottom: 1px solid #1F2937;
+    vertical-align: middle;
+}
+
+.asset-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.currency-icon {
+    width: 40px;
+    height: 40px;
+    background: #1F2937;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #3B82F6;
+}
+
+.asset-names h4 {
+    margin: 0;
+    font-size: 14px;
+    color: white;
+}
+
+.asset-names span {
+    font-size: 11px;
+    color: #9CA3AF;
+}
+
+.price-text {
+    font-weight: 700;
+    color: white;
+}
+
+.change-text {
+    font-weight: 600;
+}
+
+.change-text.up {
+    color: #10B981;
+}
+
+.change-text.down {
+    color: #EF4444;
+}
+
+.sparkline svg {
+    display: block;
+}
+
+.trade-btn {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3B82F6;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.trade-btn:hover {
+    background: #3B82F6;
+    color: white;
+}
+
+
+/* Right Sidebar */
+.currencies-sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.perf-card,
+.activity-card,
+.tip-card {
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.sidebar-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: white;
+}
+
+.index-display {
+    margin-bottom: 24px;
+}
+
+.index-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.index-name {
+    font-size: 12px;
+    color: #9CA3AF;
+    font-weight: 600;
+}
+
+.index-change {
+    font-size: 12px;
+    color: #10B981;
+    font-weight: 600;
+}
+
+.index-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+}
+
+.chart-placeholder {
+    height: 100px;
+    width: 100%;
+    /* Simple SVG background simulates wave */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" preserveAspectRatio="none"><path d="M0,80 C50,80 50,20 100,20 C150,20 150,80 200,80 C250,80 250,40 300,40" fill="none" stroke="%233B82F6" stroke-width="3" /></svg>');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.activity-item {
+    display: flex;
+    gap: 12px;
+}
+
+.activity-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.activity-icon.sell {
+    color: #10B981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.activity-icon.fund {
+    color: #3B82F6;
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.activity-icon.cancel {
+    color: #EF4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.activity-details h5 {
+    margin: 0 0 4px 0;
+    font-size: 13px;
+    color: white;
+}
+
+.activity-sub {
+    font-size: 11px;
+    color: #9CA3AF;
+    display: block;
+}
+
+.tip-content {
+    background: rgba(59, 130, 246, 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.tip-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #3B82F6;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.tip-text {
+    font-size: 12px;
+    color: #9CA3AF;
+    line-height: 1.5;
+    margin: 0;
+}
