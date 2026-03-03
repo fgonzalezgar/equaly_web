@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
 
     const register = async (userData) => {
         try {
-            const response = await fetch('https://api.equaly.co/api/auth/register', {
+            const response = await fetch('https://equaly-api.vercel.app/api/users/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

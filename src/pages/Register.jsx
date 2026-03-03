@@ -40,15 +40,14 @@ const Register = () => {
         setServerError('');
 
         try {
-            // Mapping fields to API requirements (Snake Case English)
+            // Mapping fields to API requirements
             const payload = {
-                first_name: formData.firstName,
-                last_name: formData.lastName,
+                firstName: formData.firstName,
+                lastName: formData.lastName,
                 email: formData.email,
                 password: formData.password,
-                password_confirmation: formData.password,
                 country: formData.country,
-                terms_accepted: true // Force true since we validated it above
+                acceptedTerms: true // Force true since we validated it above
             };
 
             const result = await register(payload);
