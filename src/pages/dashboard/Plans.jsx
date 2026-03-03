@@ -24,8 +24,8 @@ const Plans = () => {
             icon: '🥇',
             roi: '4.0%',
             duration: '60 Días',
-            min: 5000,
-            max: 25000,
+            min: 1,
+            max: 10000,
             popular: false
         },
         {
@@ -35,8 +35,8 @@ const Plans = () => {
             icon: '🥈',
             roi: '2.5%',
             duration: '45 Días',
-            min: 1000,
-            max: 4999,
+            min: 1,
+            max: 10000,
             popular: true
         },
         {
@@ -46,8 +46,8 @@ const Plans = () => {
             icon: '🥉',
             roi: '1.5%',
             duration: '30 Días',
-            min: 100,
-            max: 999,
+            min: 1,
+            max: 10000,
             popular: false
         }
     ];
