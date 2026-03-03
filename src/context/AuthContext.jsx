@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (credentials) => {
         try {
-            const response = await fetch('https://api.equaly.co/api/auth/login', {
+            const response = await fetch('https://equaly-api.vercel.app/api/users/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -53,7 +53,15 @@ export const AuthProvider = ({ children }) => {
                 body: JSON.stringify(credentials)
             });
 
-            const data = await response.json();
+            const textResponse = await response.text();
+            let data;
+
+            try {
+                data = JSON.parse(textResponse);
+            } catch (jsonError) {
+                console.error('Non-JSON response from server:', textResponse);
+                throw new Error('Error de conexión o fallo interno en el servidor. Por favor intenta de nuevo.');
+            }
 
             if (!response.ok) {
                 throw new Error(data.message || 'Error al iniciar sesión');
