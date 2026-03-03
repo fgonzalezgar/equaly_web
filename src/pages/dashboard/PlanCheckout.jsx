@@ -248,9 +248,9 @@ const PlanCheckout = () => {
                 throw new Error('Error de conexión o fallo interno en el servidor. Por favor intenta de nuevo.');
             }
 
-            if (response.ok && data.checkoutUrl) {
+            if (response.ok && data.data?.checkoutUrl) {
                 // Redirigir al usuario al Stripe Checkout
-                window.location.href = data.checkoutUrl;
+                window.location.href = data.data.checkoutUrl;
             } else {
                 throw new Error(data.message || (data.errors ? Object.values(data.errors).flat().join(', ') : 'Error al conectar con la pasarela de pago'));
             }
