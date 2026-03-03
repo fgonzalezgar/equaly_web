@@ -50,70 +50,19 @@ const BuyStocks = () => {
         setSelectedStock(stock);
     };
 
-    const handleBuy = async () => {
+    const handleBuy = () => {
         if (!selectedStock || !quantity) {
             alert('Por favor selecciona un activo y especifica la cantidad');
             return;
         }
 
-        setIsSubmitting(true);
-
-        try {
-            const total = selectedStock.price * parseFloat(quantity);
-            const purchaseData = {
-                symbol: selectedStock.symbol,
-                company_name: selectedStock.name,
-                quantity: parseFloat(quantity),
-                price_per_share: orderType === 'limit' && limitPrice ? parseFloat(limitPrice) : selectedStock.price,
-            };
-
-            // Get token from localStorage - check equaly_user first, then direct token
-            let token = localStorage.getItem('token');
-            if (!token) {
-                const userData = JSON.parse(localStorage.getItem('equaly_user'));
-                token = userData?.token;
+        // Navigate to the checkout page instead of direct purchase
+        navigate('/dashboard/buy/checkout', {
+            state: {
+                asset: selectedStock,
+                quantity: parseFloat(quantity)
             }
-            const response = await fetch('https://api.equaly.co/api/stocks/purchases', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify(purchaseData)
-            });
-
-            if (!response.ok) {
-                throw new Error('Error al procesar la compra');
-            }
-
-            const data = await response.json();
-
-            // Extract response data
-            const purchase = data.purchase || {};
-            const purchaseId = purchase.id || 'N/A';
-            const paymentDeadline = purchase.payment_deadline || '2 días';
-
-            // Set notification instead of alert
-            setPurchaseNotification({
-                type: 'success',
-                purchaseId: purchaseId,
-                symbol: selectedStock.symbol,
-                quantity: quantity,
-                total: total,
-                status: purchase.status || 'Pendiente',
-                paymentDeadline: paymentDeadline
-            });
-
-            setQuantity('');
-            setLimitPrice('');
-            setSelectedStock(null);
-
-        } catch (error) {
-            console.error('Error al realizar la compra:', error);
-            alert('❌ Error al procesar la compra. Por favor intenta nuevamente.');
-        } finally {
-            setIsSubmitting(false);
-        }
+        });
     };
 
 
@@ -534,7 +483,7 @@ const BuyStocks = () => {
                                         onClick={handleBuy}
                                         disabled={!quantity || isSubmitting}
                                     >
-                                        {isSubmitting ? '⏳ Procesando...' : `Comprar ${selectedStock.symbol}`}
+                                        {isSubmitting ? '⏳ Procesando...' : `💰 Continuar al Pago`}
                                     </button>
 
                                     {/* Disclaimer */}

@@ -12,6 +12,7 @@ import Stocks from './pages/dashboard/Stocks';
 import BuyStocks from './pages/dashboard/BuyStocks';
 import Plans from './pages/dashboard/Plans';
 import PlanCheckout from './pages/dashboard/PlanCheckout';
+import StockCheckout from './pages/dashboard/StockCheckout';
 import Currencies from './pages/dashboard/Currencies';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -86,6 +87,16 @@ function App() {
               element={
                 <ProtectedRoute>
                   <PlanCheckout />
+                </ProtectedRoute>
+              }
+            />
+
+            {/* Stock Checkout route */}
+            <Route
+              path="/dashboard/buy/checkout"
+              element={
+                <ProtectedRoute>
+                  <StockCheckout />
                 </ProtectedRoute>
               }
             />
