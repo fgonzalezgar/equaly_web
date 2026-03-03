@@ -14,6 +14,7 @@ import Plans from './pages/dashboard/Plans';
 import PlanCheckout from './pages/dashboard/PlanCheckout';
 import StockCheckout from './pages/dashboard/StockCheckout';
 import Currencies from './pages/dashboard/Currencies';
+import Profile from './pages/dashboard/Profile';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import './App.css';
@@ -107,6 +108,15 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Currencies />
+                </ProtectedRoute>
+              }
+            />
+            {/* Profile route */}
+            <Route
+              path="/dashboard/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
                 </ProtectedRoute>
               }
             />

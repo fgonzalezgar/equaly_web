@@ -154,7 +154,7 @@ const Plans = () => {
                         <span className="nav-icon">📈</span>
                         <span>Gráficos Avanzados</span>
                     </a>
-                    <a href="#" className="nav-item">
+                    <a href="#" onClick={(e) => { e.preventDefault(); navigate('/dashboard/profile'); }} className="nav-item">
                         <span className="nav-icon">⚙️</span>
                         <span>Configuración</span>
                     </a>
@@ -166,10 +166,10 @@ const Plans = () => {
 
                 <div className="sidebar-footer">
                     <div className="user-profile">
-                        <div className="user-avatar">
+                        <div className="user-avatar" onClick={() => navigate('/dashboard/profile')} style={{ cursor: 'pointer' }}>
                             {displayUser.name.charAt(0).toUpperCase()}
                         </div>
-                        <div className="user-info">
+                        <div className="user-info" onClick={() => navigate('/dashboard/profile')} style={{ cursor: 'pointer' }}>
                             <div className="user-name">{displayUser.name}</div>
                             <div className="user-status">Cuenta Premium</div>
                         </div>
